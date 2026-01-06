@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>System Console</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+  margin: 0;
+  background: black;
+  color: #11ff11;
+  font-family: monospace;
+  font-size: 45px; /* ← هنا كِبرنا الكتابة بزاف */
+  font-weight: bold;
+}
+#screen {
+  padding: 15px;
+  white-space: pre-wrap;
+}
+</style>
+</head>
+<body>
+
+<div id="screen"></div>
+
+<script>
+let lines = [
+  "dima dima wydade...",
+  ''g.j.w.9...",
+  "dima dima wydade...",
+  "winners 3a2ila lel 2abad...",
+  "🫀❤️🤍🫀.",
+  ",                      ",
+  ",ULTRAS WINNERS..."
+];
+
+let screen = document.getElementById("screen");
+let line = 0;
+let char = 0;
+let speed = 35; // السرعة
+
+function typeEffect() {
+  if (char < lines[line].length) {
+    screen.innerHTML += lines[line].charAt(char);
+    char++;
+  } else {
+    screen.innerHTML += "\n";
+    line++;
+    char = 0;
+    if (line >= lines.length) line = 0;
+  }
+  window.scrollTo(0, document.body.scrollHeight);
+  setTimeout(typeEffect, speed);
+}
+
+typeEffect();
+</script>
+
+</body>
+</html>
